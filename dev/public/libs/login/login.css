@@ -1,0 +1,141 @@
+body {
+    margin: 0 auto;
+}
+
+.container {
+    background: #213340;
+    text-align:center; 
+    vertical-align:middle;
+    display:table-cell;
+}
+
+.wrap-both {
+    width:700px; 
+    height:400px; 
+    background-color:#213340; 
+    display:inline-block; 
+    
+}
+
+.login-box {
+    width:50%;
+    height:90%;
+    background: #112233;
+    float: left;
+    
+}
+
+.signin-box {
+    width:50%;
+    height:90%;
+    background: #445566;
+    float: left;
+}
+
+.login-inner {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 75%;    
+}
+
+.signin-inner {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 75%;
+}
+
+input {
+    background: #172a37;
+    width: 100%;
+    height: 27px;   
+    border: 0;
+    color: white;        
+}
+
+
+.holder {
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 3px;   
+    cursor: auto;
+    color:#cbced0;
+    font-size: 16px;
+    width:180px;
+    text-align: left;
+    z-index: 1;
+    
+}
+
+.validation-div {
+    height: 18px;    
+    font-size: 12px;  
+    text-align: left;  
+}
+
+input[name=login-button] {
+    background: #00b399;
+    font-weight: bold;
+    color: white;
+    margin-top: 45px;
+    font-family: myfont;
+    height: 28px;
+    font-size: 15px;
+    
+}
+
+input[name=signin-button] {
+    background: #00b399;
+    font-weight: bold;
+    color: white;
+    margin-top: 0px;
+    font-family: myfont;
+    height: 28px;
+    font-size: 15px;
+}
+
+@font-face {
+    font-family: myfont;
+    src: url(/assets/images/Myriad-Pro-Black_31623.ttf);
+}
+
+.company-name {
+    height: 10%;
+    width: 100%;
+    color: #00b399;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: myfont;
+}
+
+.emailholder {
+    position: absolute;
+    margin: 7px 8px;
+    margin-left: 30px;
+    cursor: auto;
+    color:#cbced0;
+    font-size: 16px;
+    width:200px;
+    text-align: left;
+    z-index: 1;
+    margin-top: 10px;
+}
+
+
+#dupcheckbutton {
+    position: absolute;
+    
+    margin-top: 20px;
+    border: 1px solid;
+    height: 15px;
+    font-size: 10px;
+    
+}
+
+.validation-div {
+	color: #f04747;
+}
+

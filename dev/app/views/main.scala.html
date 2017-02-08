@@ -1,0 +1,194 @@
+@* main Template File *@
+@(uId:String)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard | Coco - Responsive Bootstrap Admin Template</title>   
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="description" content="">
+        <meta name="keywords" content="coco bootstrap template, coco admin, bootstrap,admin template, bootstrap admin,">
+        <meta name="author" content="Huban Creative">
+
+<!--  jobCreate -->
+       
+       
+       <link rel="stylesheet" href="@routes.Assets.versioned("libs/pipeline/mcustom-scrollbar/jquery.mCustomScrollbar.min.css")">
+		 <!-- pipeline -->
+
+        <!-- Base Css Files -->
+  		
+     	 <link href="@routes.Assets.versioned("libs/main/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css")" rel="stylesheet" /> 
+        <link href="@routes.Assets.versioned("libs/main/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/fontello/css/fontello.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/animate-css/animate.min.css")" rel="stylesheet" />
+         <link href="@routes.Assets.versioned("libs/main/nifty-modal/css/component.css")" rel="stylesheet" /> 
+         <link href="@routes.Assets.versioned("libs/main/magnific-popup/magnific-popup.css")" rel="stylesheet" />  
+         <link href="@routes.Assets.versioned("libs/main/ios7-switch/ios7-switch.css")" rel="stylesheet" />  
+        <link href="@routes.Assets.versioned("libs/main/pace/pace.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/sortable/sortable-theme-bootstrap.css")" rel="stylesheet" />
+        <!-- <link href="@routes.Assets.versioned("libs/main/bootstrap-datepicker/css/datepicker.css")" rel="stylesheet" /> -->
+        <link href="@routes.Assets.versioned("libs/main/jquery-icheck/skins/all.css")" rel="stylesheet" />
+         <link href="@routes.Assets.versioned("libs/main/bootstrap-dialog/css/bootstrap-dialog.min.css")" rel="stylesheet" />
+        <!-- Code Highlighter for Demo -->
+        <link href="@routes.Assets.versioned("libs/main/prettify/github.css")" rel="stylesheet" />
+        <!-- Extra CSS Libraries Start nav logo 정의 -->
+        <link href="@routes.Assets.versioned("libs/main/bootstrap-select/bootstrap-select.min.css")" rel="stylesheet" type="text/css" />
+ 
+        <link href="@routes.Assets.versioned("css/style.css")" rel="stylesheet" type="text/css" />
+        <!-- Extra CSS Libraries End -->
+        <link href="@routes.Assets.versioned("css/style-responsive.css")" rel="stylesheet"/>
+        <link href="@routes.Assets.versioned("css/job-list.css")" rel="stylesheet" />
+  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+       
+    </head>
+    <!--style.css 에 정의 되어 있음. fixed-left topbar topbar-left logo -->
+    <body class="fixed-left">
+        <!--Topbar 시작-->
+         <div class="topbar">
+            <div class="topbar-left">
+                <div class="logo" >
+                   <a href="#"><img src="@routes.Assets.versioned("/images/smallLogo.png")" alt="Logo" width="100" height="50" ></a>
+                </div>
+            </div>
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-collapse2">
+                        <ul class="nav navbar-nav navbar-right top-navbar">
+                            <!--상단 메뉴는 여기에 추가 해주면 됨.-->
+                            <li class="dropdown topbar-profile">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    @uId<i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Change Password</a></li>
+                                    <li><a href="#">Account Setting</a></li>
+                                    <!--logout 창으로 redirect-->         
+                                    <li><a  href="@routes.LaunchController.logoutUser()"><i class="icon-logout-1"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+           
+                </div>
+            </div>
+        </div>
+        <!--Topbar 끝-->
+        <div class="logo">
+	</div>
+        <!--Topbar 끝-->
+        <div class="logo">
+	</div>
+	<div class="left side-menu">
+        <ul>
+            <li><a onclick="contentChange('jobCreate')"><i class="fa fa-pencil-square-o" ></i> Job Create</a></li>
+            <li><a onclick="contentChange('jobList')"><i class="fa fa-bars" ></i> Job List</a></li>
+            <li><a onclick="contentChange('uploadPage')"><i class="fa fa-upload" ></i> Uplaod Env </a></li>
+            
+            
+        </ul>
+    </div>
+
+    <div class="content" >
+    	<!-- Begin page -->	
+		<div id="wrapper">
+      		<div class="content-page">
+           	<div class="content">
+					<div class="row">
+						<div class="col-sm-12" id="content">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    <input type="hidden" id="uId" value=@uId>  
+    <!--공통영역-->
+    
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="@routes.Assets.versioned("libs/main/jquery/jquery-2.1.4.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap/js/bootstrap.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jqueryui/jquery-ui-1.10.4.custom.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-ui-touch/jquery.ui.touch-punch.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-detectmobile/detect.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-animate-numbers/jquery.animateNumbers.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/ios7-switch/ios7.switch.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/fastclick/fastclick.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-blockui/jquery.blockUI.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-bootbox/bootbox.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-slimscroll/jquery.slimscroll.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-sparkline/jquery-sparkline.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/nifty-modal/js/classie.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/nifty-modal/js/modalEffects.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/sortable/sortable.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-fileinput/bootstrap.file-input.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-select/bootstrap-select.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-select2/select2.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/magnific-popup/jquery.magnific-popup.min.js")"></script> 
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-icheck/icheck.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/pace/pace.min.js")"></script>
+
+	<!-- Demo Specific JS Libraries -->
+	<script src="@routes.Assets.versioned("libs/main/prettify/prettify.js")"></script>
+
+	
+	<!-- Page Specific JS Libraries -->
+	<script src="@routes.Assets.versioned("libs/main/raphael/raphael-min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/morrischart/morris.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-knob/jquery.knob.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-jvectormap/js/jquery-jvectormap-us-aea-en.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-clock/clock.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-easypiechart/jquery.easypiechart.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-weather/jquery.simpleWeather-2.6.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-xeditable/js/bootstrap-editable.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-calendar/js/bic_calendar.min.js")"></script>	
+	 <script src="@routes.Assets.versioned("libs/main/bootstrap-dialog/js/bootstrap-dialog.min.js")"></script> 
+	<script src="@routes.Assets.versioned("js/apps/calculator.js")"></script>
+	<script src="@routes.Assets.versioned("js/apps/todo.js")"></script>
+	<script src="@routes.Assets.versioned("js/apps/notes.js")"></script>
+	
+	
+	
+	
+	
+	 <script type="text/javascript" src="@routes.Assets.versioned("libs/main/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js")"></script>
+	
+    <!-- left-menu add by seoy -->
+   	<script src="@routes.Assets.versioned("js/pages/left-menu.js")"></script>
+
+<!--  jobcreate -->
+					
+				<script src="@routes.Assets.versioned("js/main.js")"</script>	
+    			<script src="@routes.Assets.versioned("libs/pipeline/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js")"></script>
+    				<script src="@routes.Assets.versioned("js/jobCreate.js")"></script>    				    				
+    				<script src="@routes.Assets.versioned("js/bundleUpload.js")"></script>
+    				<script src="@routes.Assets.versioned("js/exeUpload.js")"></script>
+    				<script src="@routes.Assets.versioned("js/baseImageUpload.js")"></script>
+    				<script src="@routes.Assets.versioned("js/envScriptUpload.js")"></script>
+				   	<script src="@routes.Assets.versioned("libs/main/prettify/prettify.js")"></script>
+					
+					
+	
+
+<!--  pipeline -->
+        <!--공통영역 끝 불필요한 부분 삭제 필요-->
+    </body>
+              <footer>
+                all reserved ichthys
+                <div class="footer-links pull-right">
+                	<a href="#">About</a><a href="#">Support</a><a href="#">Terms of Service</a><a href="#">Legal</a><a href="#">Help</a><a href="#">Contact Us</a>
+                </div>
+            </footer>
+</html>

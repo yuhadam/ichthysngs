@@ -1,0 +1,184 @@
+@* login Template File *@
+@(param: Any)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>로그인/회원가입</title>   
+
+        <!-- Base Css Files -->
+        <link href="@routes.Assets.versioned("libs/main/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/fontello/css/fontello.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/animate-css/animate.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/nifty-modal/css/component.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/magnific-popup/magnific-popup.css")" rel="stylesheet" /> 
+        <link href="@routes.Assets.versioned("libs/main/ios7-switch/ios7-switch.css")" rel="stylesheet" /> 
+        <link href="@routes.Assets.versioned("libs/main/pace/pace.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/sortable/sortable-theme-bootstrap.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/bootstrap-datepicker/css/datepicker.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("libs/main/jquery-icheck/skins/all.css")" rel="stylesheet" />
+        
+                <!-- Extra CSS Libraries Start -->
+                <link href="@routes.Assets.versioned("css/style.css")" rel="stylesheet" type="text/css" />
+                
+                <!-- Extra CSS Libraries End -->
+        <link href="@routes.Assets.versioned("css/style-responsive.css")" rel="stylesheet" />
+
+    </head>
+    <body class="first-page">
+    <style>
+        .full-content-center {
+          width: 100%;
+          padding: 5px 0px;
+          max-width: 1000px;
+          margin: 6% auto;
+          text-align: center;
+        }
+        
+        .login-wrap {
+          margin: 20px 10%;
+          text-align: left;
+          background-color:#112233; 
+          padding: 20px 20px;
+          color: #fff;  
+        }
+        
+        .login-block {
+            background-color:#112233; 
+        }
+        
+         .register-block {
+             background-color:#445566; 
+        }
+        .login-wrap a {
+            color: #fff;
+        }
+        .login-wrap i {
+          margin-right: 5px;
+        }
+        .login-wrap .checkbox {
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .login-wrap .btn-block {
+          margin: 5px 0;
+        }
+        .login-wrap .login-input {
+          margin-top: 30px;
+          position: relative;
+        }
+        .login-wrap .login-input .text-input {
+          padding-left: 30px;
+        }
+        .login-wrap .login-input i.overlay {
+          position: absolute;
+          left: 10px;
+          top: 10px;
+          color: #aaa;
+        }
+        
+        .login-btn-green {
+            background-color: #00B399;
+            color: #fff;
+        }
+        
+    </style>
+	<!-- Begin page -->
+	<div class="container">
+		<div class="full-content-center">
+			<p class="text-center"><a href="#"><img src="@routes.Assets.versioned("/images/logo.png")" alt="Logo" width="400" height="300" ></a></p>
+			<div class="login-wrap">
+                <div class="row">
+                    <form id="loginfrm" data-toggle="validator" role="form"> 
+                        <div class="login-block col-sm-6">
+                        <div class="form-group login-input">
+                            <i class="fa fa-user overlay"></i>
+                            <input type="text" class="form-control text-input" id="login-id-input" data-minlength="6" maxlength="12" data-error="사용자아이디를 입력하세요 (최소:6 최대:12)" placeholder="User Id" required>	
+                        		 <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group login-input">
+                        		<i class="fa fa-key overlay"></i>
+                        		<input type="password" class="form-control text-input" id="login-pwd-input" data-minlength="6" maxlength="12" data-error="사용자 비밀번호를 입력하세요 (최소:6 최대:12)" placeholder="********" required>
+                        		 <div class="help-block with-errors"></div>
+                        	</div> 
+                        	</div>          	
+                    		 
+                    </form>
+                    <form id="registerfrm" data-toggle="validator" role="form">                    
+                        <div class="register-block col-sm-6">
+                        <div class="form-group login-input">
+                            <i class="fa fa-user overlay"></i>
+                            <input type="text" class="form-control text-input" id="signin-id-input" placeholder="User Id" required>
+                        		<div class="help-block with-errors"></div>
+                        </div>
+							<div class="form-group login-input">
+                            <i class="fa fa-user overlay"></i>
+                            <input type="text" class="form-control text-input" id="signin-email-input" placeholder="User Email" required>
+                          
+                        </div>
+                        <div class="form-group login-input">
+                            <i class="fa fa-key overlay"></i>
+                            <input type="password" class="form-control text-input" id="signin-pwd-input" data-minlength="6" maxlength="12" data-error="사용자 비밀번호를 입력하세요 (최소:6 최대:12)" placeholder="********" required>
+                     		<div class="help-block with-errors"></div>
+                                                        
+                        </div>
+                        <div class="form-group login-input">
+                            <i class="fa fa-check overlay"></i>
+                            <input type="password" class="form-control text-input" id="signin-repwd-input" data-minlength="6" maxlength="12" data-error="사용자 비밀번호를 입력하세요 (최소:6 최대:12)" data-match="#signin-pwd-input" data-match-error="비밀번호가일치하지 않습니다." placeholder="********" required>
+                           	<div class="help-block with-errors"></div>
+                        </div>
+                        
+                    </div>
+                    </form>
+            
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="login-block col-sm-6">
+                                	<button type="submit" class="btn login-btn-green btn-block" onclick="btnLoginSubmit_click()">Login</button>
+                            </div>
+                            <div class="register-block col-sm-6">
+                                <button type="submit" id="btnRegister" class="btn btn-default btn-block" onclick="btnRegisterSubmit_click();">Register</button>
+							</div>
+                        </div>
+                    </div>
+            
+                </div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="@routes.Assets.versioned("libs/main/jquery/jquery-2.1.4.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap/js/bootstrap.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jqueryui/jquery-ui-1.10.4.custom.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-ui-touch/jquery.ui.touch-punch.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-detectmobile/detect.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-animate-numbers/jquery.animateNumbers.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/ios7-switch/ios7.switch.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/fastclick/fastclick.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-blockui/jquery.blockUI.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-bootbox/bootbox.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-slimscroll/jquery.slimscroll.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-sparkline/jquery-sparkline.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/nifty-modal/js/classie.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/nifty-modal/js/modalEffects.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/sortable/sortable.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-fileinput/bootstrap.file-input.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-select/bootstrap-select.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-select2/select2.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/magnific-popup/jquery.magnific-popup.min.js")"></script> 
+	<script src="@routes.Assets.versioned("libs/main/pace/pace.min.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+	<script src="@routes.Assets.versioned("libs/main/jquery-icheck/icheck.min.js")"></script>
+ 	<script type="text/javascript" src="@routes.Assets.versioned("libs/main/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js")"></script>
+    <!-- add by seoy for validation -->        
+    <script src="@routes.Assets.versioned("libs/main/bootstrap-validator/validator.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/login.js")"></script>
+    
+    
+  
+	</body>
+</html>

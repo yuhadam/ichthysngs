@@ -1,0 +1,72 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# First page
+GET		/							 controllers.PageController.loginPage
+
+#post to controller with user data
+POST 	/login						controllers.LaunchController.loginUser
+
+#When user register check db
+POST	/iddupcheck			controllers.LaunchController.idDupCheck
+
+#logout
+GET		/logout					controllers.LaunchController.logoutUser
+
+# Dash board page 
+GET 	/main							controllers.PageController.main
+
+# When main page loaded, get defaunt configuration from db
+GET		/getDefault				controllers.LaunchController.getDefaultConf
+
+GET		/websocket							controllers.PageController.socket
+
+
+
+# get jobList, bundleList, exeList, scriptList data from db
+GET		/getImageTable/:limit					controllers.LaunchController.getImageTable(limit:Int)
+GET		/getBundleTable/:limit					controllers.LaunchController.getBundleTable(limit:Int)
+GET		/getExeTable/:limit					controllers.LaunchController.getExeTable(limit:Int)
+GET		/getBaseImageTable/:limit					controllers.LaunchController.getBaseImageTable(limit:Int)
+GET		/getScriptTable/:limit				controllers.LaunchController.getScriptTable(limit:Int)
+
+
+# get jobList, bundleList, exeList, scriptList data from db when search...  
+GET 	/getSearchTable					controllers.LaunchController.getSearchTable(flag:Int, value:String)
+GET 	/getBundleSearchTable			controllers.LaunchController.getBundleSearchTable(flag:Int, value:String)
+GET 	/getExeSearchTable			controllers.LaunchController.getExeSearchTable(flag:Int, value:String)
+GET 	/getBaseImageSearchTable			controllers.LaunchController.getBaseImageSearchTable(flag:Int, value:String ,osType:String)
+GET		/getScriptSearchTable				controllers.LaunchController.getScriptSearchTable(flag:Int, value:String, osType:String)
+
+# upload files (job inputFile, bundle file, exe file)
+POST	/fileupload			controllers.LaunchController.uploadCustom(size:String, conf:String, dockerfile:String)
+POST	/bundleupload			controllers.LaunchController.uploadCustomBundle(size:String, conf:String)
+POST	/exeupload			controllers.LaunchController.uploadCustomExe(size:String, conf:String)
+POST	/baseImageupload			controllers.LaunchController.uploadCustomBaseImage(conf:String)
+POST	/scriptupload			controllers.LaunchController.uploadCustomScript(conf:String)
+
+# dplication check ..
+POST	/jobnamedupcheck			controllers.LaunchController.jobDupCheck
+POST 	/bundledupcheck			controllers.LaunchController.bundleDupCheck
+POST 	/exedupcheck			controllers.LaunchController.exeDupCheck
+POST 	/baseImagedupcheck			controllers.LaunchController.baseImageDupCheck
+POST 	/scriptdupcheck			controllers.LaunchController.scriptDupCheck
+
+
+
+
+POST		/success					controllers.LaunchController.success
+
+POST 	/fail						controllers.LaunchController.fail
+
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# laod views..
+GET		/views/:data					controllers.PageController.getHtml(data:String)
+

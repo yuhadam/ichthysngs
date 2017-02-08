@@ -1,0 +1,67 @@
+@* bundleList Template File *@
+@(param: Any)
+
+<script type="text/javascript" src="@routes.Assets.versioned("js/bundleList.js")"></script>
+<div class="portlet">
+	<div class="portlet-title"></div>
+    <div class="portlet-body">
+    	<div class="widget">
+        <!--widget-head start-->
+        	<div class="widget-header transparent">
+            	<h2><i class="fa fa-bars"></i><span class="text-uppercase"> Bundle List</span></h2>
+			</div>
+		<!--widget-head end-->
+		<!--widget-contents start-->
+		 
+        <div class="widget-content padding ">
+        	<div class="data-table-toolbar">
+            	<span class="text-uppercase"> Bundle Search </span>	
+				<div class="row">							
+					<div class="col-md-4">
+						<select class="form-control selectpicker" id="bundleSearchSelect">
+                        	<option>bundleName</option>
+                            <option>description</option>
+                            <option>uId </option>
+                        </select>
+					</div>																				
+					<div class="col-md-4">
+						<div class="toolbar-btn-action">
+							<div id="bundleSearchInput">
+								<input type='text' id="bundleSearchInp" class='form-control' placeholder='Insert search value....'>
+							</div>																												
+						</div>
+					</div>
+					<a class="btn btn-green-3" id="bundleSearchBtn"> Search </a>
+					<a class="btn btn-primary" id="initBundleList"><i class="fa fa-refresh"></i> Refresh</a>
+				</div>
+			</div>
+		</div>
+		 
+		<!--widget-head end-->
+		<!-- form start -->
+		<div class="job-list-body">
+			<table class="table table-hover table-striped" style="border-collapse:collapse;" class="table table-hover table-condensed">
+				<thead>
+					<tr id="bundleHead">								
+						<th>Bundle Name</th>
+						<th>Description</th>
+						<th>User ID</th>                															
+						<th>Bundle Location</th>						
+						<th>Env Name</th>
+					</tr>
+				</thead>
+		<!--  modify colspan=6 later  -->
+				<tbody class="job-list-table" id="bundle-list-table"></tbody>
+			</table>	
+		</div>   
+		<!-- form end -->
+		<div class="col-md-12" style="text-align:center; background:#f9f9f9">
+			<ul class="pager">
+  				<li class="previous" id="bundlePrevious"><a><h5><i class="fa fa-arrow-left"></i><span class="text-uppercase"> previous</span></h5></a></li>                                        		                                        	
+  				<li class="next" id="bundleNext"><a><h5><span class="text-uppercase">next </span><i class="fa fa-arrow-right"></i></h5></a></li>
+			</ul>
+			
+		</div>
+		</div>
+	</div>
+</div>

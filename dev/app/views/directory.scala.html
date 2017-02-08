@@ -1,0 +1,57 @@
+<style>	
+#dragandrophandler
+{
+border:2px dotted #0B85A1;
+width:400px;
+color:#92AAB0;
+text-align:left;vertical-align:middle;
+padding:10px 10px 10 10px;
+margin-bottom:10px;
+font-size:150%;
+}
+
+</style>
+<div id="dragandrophandler">Drag & Drop Files Here or <input type="file" name="selectedFile[]" id="selectedFile" style="display: none;" multiple=""/>
+<input type="button" value="Browse" onclick="document.getElementById('selectedFile').click();" /></div>
+<input type="button" id="test"/>
+
+<script>
+var obj = $("#dragandrophandler");
+var Files=[];
+var count=0;
+obj.on('dragenter', function (e) 
+{
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('border', '2px solid #0B85A1');
+});
+obj.on('dragover', function (e) 
+{
+     e.stopPropagation();
+     e.preventDefault();
+});
+obj.on('drop', function (e) 
+{
+ 
+     $(this).css('border', '2px dotted #0B85A1');
+     e.preventDefault();
+     var file  = e.originalEvent.dataTransfer.files;
+     Files[count]=file;
+     count++
+ 
+     //We need to send dropped files to Server
+     
+});
+$("#test").click(function(){
+	handleFileUpload(Files);
+})
+
+
+function handleFileUpload(files){
+	alert(files.length)
+	 for (var i = 0; i < files.length; i++) 
+	   {
+	   		alert(files[i][0].name)     
+	   }
+}
+</script>
